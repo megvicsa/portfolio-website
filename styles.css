@@ -1201,7 +1201,7 @@ section {
   justify-content: space-between;
   height: 150px;
   word-break: break-word;
-  overflow: hidden;
+  overflow: visible;
 }
 .home-stats .stat h3 {
   font-size: 2.1rem;
@@ -1228,5 +1228,43 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
+    margin: 2rem 0 1rem 0;
+  }
+  
+  .home-stats .stat {
+    min-width: 180px;
+    max-width: 220px;
+    height: auto;
+    min-height: 120px;
+    padding: 1rem 1.5rem;
+  }
+  
+  .home-stats .stat h3 {
+    font-size: 1.8rem;
+  }
+  
+  .home-stats .stat p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-stats {
+    gap: 1rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+  
+  .home-stats .stat {
+    min-width: 160px;
+    max-width: 200px;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .home-stats .stat h3 {
+    font-size: 1.6rem;
+  }
+  
+  .home-stats .stat p {
+    font-size: 0.95rem;
   }
 } 
