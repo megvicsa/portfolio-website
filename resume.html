@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#0e1111;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Meghna Swaminathan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .resume-layout {
+            display: flex;
+            min-height: 70vh;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #0e1111;
+            border: 1px solid #b5f4a5;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: hidden;
+        }
+        .resume-sidebar {
+            background: #0e1111;
+            min-width: 210px;
+            padding: 2.5rem 1.2rem 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: flex-start;
+            border-right: 1px solid #b5f4a5;
+        }
+        .resume-sidebar button {
+            background: transparent;
+            border: 1px solid #b5f4a5;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #b5f4a5;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s;
+        }
+        .resume-sidebar button.active, .resume-sidebar button:hover {
+            background: transparent;
+            color: #ccc;
+            border-color: #ccc;
+        }
+        .resume-main {
+            flex: 1;
+            padding: 2.5rem 2.2rem;
+            background: #0e1111;
+        }
+        @media (max-width: 800px) {
+            .resume-layout {
+                flex-direction: column;
+            }
+            .resume-sidebar {
+                flex-direction: row;
+                min-width: 0;
+                width: 100%;
+                padding: 1rem 0.5rem;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .resume-main {
+                padding: 1.5rem 1rem;
+            }
+        }
+        
+        /* Terminal Experience Styles */
+        .experience-terminal {
+            background: #0e1111;
+            border: 1px solid #b5f4a5;
+            border-radius: 0;
+            overflow: hidden;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .terminal-header {
+            background: #1a1a1a;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #b5f4a5;
+        }
+        
+        .terminal-title {
+            color: #b5f4a5;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        .terminal-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+        }
+        
+        .control:nth-child(2) {
+            background: #ffbd2e;
+        }
+        
+        .control:nth-child(3) {
+            background: #27ca3f;
+        }
+        
+        .terminal-content {
+            padding: 1.5rem;
+            background: #0e1111;
+        }
+        
+        .command-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .prompt {
+            color: #b5f4a5;
+            margin-right: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .command {
+            color: #ccc;
+            font-weight: 400;
+        }
+        
+        .experience-output {
+            color: #ccc;
+        }
+        
+        .job-entry {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+        }
+        
+        .job-header {
+            margin-bottom: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .job-title {
+            color: #b5f4a5;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .job-company {
+            color: #b5f4a5;
+            font-weight: 400;
+        }
+        
+        .job-period {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .job-details {
+            margin-left: 1rem;
+        }
+        
+        .detail-line {
+            color: #ccc;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+        
+        .detail-line:last-child {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+            
+            .terminal-content {
+                padding: 1rem;
+            }
+            
+            .job-entry {
+                padding-left: 0.5rem;
+            }
+            
+            .job-details {
+                margin-left: 0.5rem;
+            }
+        }
+        
+        /* Skills Tree Styles */
+        .skills-tree {
+            color: #ccc;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #b5f4a5;
+            font-weight: 600;
+        }
+        
+        .folder-icon {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .category-name {
+            font-size: 1.1rem;
+        }
+        
+        .skill-items {
+            margin-left: 1.5rem;
+        }
+        
+        .skill-item {
+            color: #ccc;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .file-icon {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .skill-items {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body style="background:#0e1111;">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Meghna Swaminathan</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="resume.html" class="nav-link active">Resume</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <section style="padding: 5rem 0 5rem 0; background: #0e1111; min-height: calc(100vh - 140px); display: flex; align-items: center; justify-content: center;">
+        <div class="resume-layout">
+            <div class="resume-sidebar">
+                <button class="active" onclick="showResumeSection('education')"><i class="fas fa-graduation-cap"></i> Education</button>
+                <button onclick="showResumeSection('experience')"><i class="fas fa-briefcase"></i> Experience</button>
+                <button onclick="showResumeSection('skills')"><i class="fas fa-tools"></i> Skills</button>
+            </div>
+            <div class="resume-main">
+                <div id="resume-education" class="resume-section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="experience-terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-title">education.log</span>
+                            <div class="terminal-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">cat education.log</span>
+                            </div>
+                            <div class="experience-output">
+                                <div class="job-entry">
+                                    <div class="job-header">
+                                        <span class="job-title">Bachelor of Science in Computer Science</span>
+                                        <span class="job-company">@ Purdue University</span>
+                                        <span class="job-period">[2022 – 2025]</span>
+                                    </div>
+                                    <div class="job-details">
+                                        <div class="detail-line">├── Software Engineering, Systems Programming, Web Development, Algorithms</div>
+                                        <!-- <div class="detail-line">├── Web Development, Algorithms</div> -->
+                                        <div class="detail-line">├── Boiler Bhangra (Treasurer)</div>
+                                        <div class="detail-line">└── Undergraduate Researcher</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="resume-experience" class="resume-section" style="display:none;">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="experience-terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-title">experience.log</span>
+                            <div class="terminal-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">cat experience.log</span>
+                            </div>
+                            <div class="experience-output">
+                                <!-- <div class="job-entry">
+                                    <div class="job-header">
+                                        <span class="job-title">Business Analyst</span>
+                                        <span class="job-company">@ Signet Jewelers</span>
+                                        <span class="job-period">[Jul 2025 - Present]</span>
+                                    </div>
+                                    <div class="job-details">
+                                        <div class="detail-line">$ Handling multiple client relationships.</div>
+                                        <div class="detail-line">$ Developing efficiency based solutions using Gen AI to streamline processes.</div>
+                                        <div class="detail-line">$ Automating processes using Python and SQL to aid the digital team.</div>
+                                    </div>
+                                </div> -->
+                                <div class="job-entry">
+                                    <div class="job-header">
+                                        <span class="job-title">Software Engineer Intern</span>
+                                        <span class="job-company">@ William Blair</span>
+                                        <span class="job-period">[Jun 2024 - Aug 2024]</span>
+                                    </div>
+                                    <div class="job-details">
+                                        <div class="detail-line">$ Created a dashboard by integrating ServiceNow data into William Blair’s CDM using Azure data pipelines for
+                                            the company’s internal usage.</div>
+                                        <div class="detail-line">$ Developed software enhancements on Azure using SQL and JavaScript, improving workflow efficiency.</div>
+                                        <div class="detail-line">$ Managed Azure DevOps deployments with Python-based data transformation & Synapse pipeline creation.</div>
+                                        <div class="detail-line">$ Implemented a custom form to streamline data collection and user interaction for local admin rights.</div>
+                                        <div class="detail-line">$ Developed custom JavaScript event listeners to automatically populate hidden features based on value changes,
+                                            enhancing data integrity and user experience.</div>
+                                        <div class="detail-line">$ Collaborated with ITSM & Security teams to meet firm requirements & ensure a smooth deployment process.</div>
+                                    </div>
+                                </div>
+                                <div class="job-entry">
+                                    <div class="job-header">
+                                        <span class="job-title">Software Engineer Intern</span>
+                                        <span class="job-company">@ Advance Auto Parts</span>
+                                        <span class="job-period">[Jan 2024 - Apr 2024]</span>
+                                    </div>
+                                    <div class="job-details">
+                                        <div class="detail-line">$ Extracted business rules from AS400 code using Gen AI, focusing on system processes and documentation.</div>
+                                        <div class="detail-line">$ Assisted in migrating AS400 code to Java, implementing secure coding practices to reduce system redundancy.</div>
+                                        <div class="detail-line">$ Managed technology-related projects, ensuring timely delivery and alignment with business objectives.</div>
+                                    </div>
+                                </div>
+                                <div class="job-entry">
+                                    <div class="job-header">
+                                        <span class="job-title">Software Engineer Intern</span>
+                                        <span class="job-company">@ Signet Jewelers</span>
+                                        <span class="job-period">[Jun 2023 - Aug 2023]</span>
+                                    </div>
+                                    <div class="job-details">
+                                        <div class="detail-line">$ Developed and optimized user-centered interfaces with React.js, focusing on enhancing user experience and
+                                            ensuring secure data handling.</div>
+                                        <div class="detail-line">$ Collaborated with cross-functional teams to ensure secure front-end & back-end systems integration.</div>
+                                        <div class="detail-line">$ Conducted troubleshooting and interacted with third-party vendors to resolve issues, ensuring minimal downtime.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="resume-skills" class="resume-section" style="display:none;">
+                    <h2 class="section-title">Skills & Technologies</h2>
+                    <div class="experience-terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-title">skills/</span>
+                            <div class="terminal-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">tree skills/</span>
+                            </div>
+                            <div class="experience-output">
+                                <div class="skills-tree">
+                                    <div class="skill-category">
+                                        <div class="category-header">
+                                            <span class="folder-icon">📁</span>
+                                            <span class="category-name">frontend/</span>
+                                        </div>
+                                        <div class="skill-items">
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> HTML5</div>
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> CSS3</div>
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> JavaScript</div>
+                                            <div class="skill-item">└── <span class="file-icon">📄</span> React</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-category">
+                                        <div class="category-header">
+                                            <span class="folder-icon">📁</span>
+                                            <span class="category-name">backend/</span>
+                                        </div>
+                                        <div class="skill-items">
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> Node.js</div>
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> Python</div>
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> MongoDB</div>
+                                            <div class="skill-item">└── <span class="file-icon">📄</span> Express.js</div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-category">
+                                        <div class="category-header">
+                                            <span class="folder-icon">📁</span>
+                                            <span class="category-name">tools/</span>
+                                        </div>
+                                        <div class="skill-items">
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> Git</div>
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> Docker</div>
+                                            <div class="skill-item">├── <span class="file-icon">📄</span> AWS</div>
+                                            <div class="skill-item">└── <span class="file-icon">📄</span> Cloud</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Meghna Swaminathan. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function showResumeSection(section) {
+            document.querySelectorAll('.resume-sidebar button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.resume-section').forEach(sec => sec.style.display = 'none');
+            document.querySelector('.resume-sidebar button[onclick*="' + section + '"]').classList.add('active');
+            document.getElementById('resume-' + section).style.display = '';
+        }
+    </script>
+</body>
+</html> 
